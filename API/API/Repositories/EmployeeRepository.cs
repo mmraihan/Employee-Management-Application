@@ -40,9 +40,24 @@ namespace API.Repositories
                    
         }
 
-        public async Task UpdateEmployeeAsync(Employee employee)
+        public async Task UpdateEmployeeAsync(int id, Employee employee)
         {
-            _employeeDbContext.Entry(employee).State = EntityState.Modified;
+            var employeeFromDb = _employeeDbContext.Employees.Where(x=>x.Id == id).FirstOrDefault();
+            if (employeeFromDb != null)
+            {
+                employeeFromDb.FirstName = employee.FirstName;
+                employeeFromDb.LastName = employee.LastName;
+                employeeFromDb.Gender=employeeFromDb.Gender;
+                employeeFromDb.Address = employee.Address;
+                employeeFromDb.DateOfBirth = employee.DateOfBirth;
+                employeeFromDb.Age = employee.Age;
+                employeeFromDb.Email = employee.Email;
+                employeeFromDb.JoiningDate = employee.JoiningDate;
+                employeeFromDb.Education=employee.Education;
+                employeeFromDb.Designation=employee.Designation;
+                employeeFromDb.Experience=employee.Experience;
+            }
+          
             await _employeeDbContext.SaveChangesAsync();
         }
     }

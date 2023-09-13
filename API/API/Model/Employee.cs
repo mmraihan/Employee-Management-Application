@@ -15,19 +15,20 @@ namespace API.Model
         public  string LastName { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int Age { get; set; }
+        public decimal Age { get; set; }
 
         [StringLength(150)]
         public string Email { get; set; }  
         public DateTime JoiningDate { get; set; }
         public string Education { get; set; }
 
+        [StringLength(100)]
+        public string Designation { get; set; }
+
         [StringLength(250)]
         public string Address { get; set; }
-        public int Experience { get; set; }
-        //public int PositionID { get; set; }
-
-        //[NotMapped]
-        //public string PositionName { get; set; }
+        public decimal Experience { get; set; }
+       
+        
     }
 }

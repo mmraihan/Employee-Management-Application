@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230913161631_AllEntities")]
-    partial class AllEntities
+    [Migration("20230913214518_Entity")]
+    partial class Entity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,11 +38,16 @@ namespace API.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Age")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Designation")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Education")
                         .IsRequired()
@@ -53,8 +58,8 @@ namespace API.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("Experience")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Experience")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -73,30 +78,9 @@ namespace API.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PositionID")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("API.Model.Position", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("PositionName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Positions");
                 });
 #pragma warning restore 612, 618
         }

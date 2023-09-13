@@ -51,9 +51,9 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            await _employeeRepository.UpdateEmployeeAsync(existingEmployee);
+            await _employeeRepository.UpdateEmployeeAsync(id, updatedEmployee);
 
-            return NoContent();
+            return Ok();
         }
         
 

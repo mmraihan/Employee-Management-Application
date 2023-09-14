@@ -2,7 +2,6 @@
 using API.DTOs;
 using API.Interfaces;
 using API.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -71,10 +70,6 @@ namespace API.Controllers
             };
 
         }
-
-
-
-
 
         private async Task<bool> UserExists(string username)
         {

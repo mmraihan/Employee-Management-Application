@@ -10,5 +10,6 @@ namespace API.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<AppUser> Users { get; set; }
     }
 }

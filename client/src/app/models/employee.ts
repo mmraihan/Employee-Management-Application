@@ -4,7 +4,7 @@ export class Employee
     id: number=0;
     firstName: string="";
     lastName: string="";
-    gender: string="male";
+    gender: string="";
     dateOfBirth: any;
     age: number;
     email: string="";

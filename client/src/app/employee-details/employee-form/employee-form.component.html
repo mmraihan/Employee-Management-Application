@@ -30,7 +30,7 @@
                     <div *ngIf="gender.invalid && (gender.touched || gender.dirty)" class="float-right">
                         <p class="text-danger">Required</p>
                     </div>
-                    <input type="text" name="gender" class="form-control" placeholder="Enter Gender" #gender="ngModel" [(ngModel)]="empService.employeeData.lastName" required>
+                    <input type="text" name="gender" class="form-control" placeholder="Enter Gender" #gender="ngModel" [(ngModel)]="empService.employeeData.gender" required>
                 </div>
 
                 <div class="col-md-3">

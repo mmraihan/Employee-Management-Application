@@ -1,9 +1,12 @@
 
 using API.Data;
+using API.Interfaces;
 using API.Repositories;
+using API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+
+
 
 namespace API
 {
@@ -25,7 +28,12 @@ namespace API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("AsianGroupDatabase"));
             });
 
+           
+
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
+            builder.Services.AddScoped<ITokenService, TokenService>();
+            //builder.Services.AddScoped<ITokenService, TokenService>();
 
             builder.Services.AddCors(options =>
             {

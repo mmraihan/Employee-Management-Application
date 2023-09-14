@@ -1,6 +1,7 @@
 
 using API.Data;
 using API.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -26,6 +27,17 @@ namespace API
 
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
+            builder.Services.AddCors(options =>
+            {
+             options.AddDefaultPolicy(
+                   policy =>
+                   {
+                    policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();                                                        
+                    });
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -35,7 +47,11 @@ namespace API
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors();
+
+
+
+           app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

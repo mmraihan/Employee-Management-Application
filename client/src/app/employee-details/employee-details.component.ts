@@ -31,23 +31,19 @@ export class EmployeeDetailsComponent implements OnInit {
 
     this.empService.employeeData=employee;
     
-    if(this.emp.isSlide==='off')
-    {
-     this.emp.hideShowSlide();
-    }
 
   }
 
   deleteEmployee(id: number)
   {
 
-    if(confirm("Are you want to delete?"))
+    if(confirm("Are you sure to delete this data?"))
     {
       this.empService.deleteEmployee(id).subscribe(data=>{
-        console.log("deleted");
+      
         this.empService.getAllEmployees().subscribe(data=>{
           this.empService.listOfEmployee=data;
-          this.toast.error('', 'Data Deleted ')
+          this.toast.error('', 'Data deleted successfully! ')
 
       });
     },

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div *ngIf="!registerMode" style='text-align: center;'>
+        <h1>Asian Group</h1>
+        <p class="lead">Employee Management System </p>
+        <div class="text-cener">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2" style="margin-right: 10px;">Register</button>
+          
+        </div>
+    </div>
+
+    <div *ngIf="registerMode"  class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">   
+               <app-register></app-register>    
+            </div>
+        </div>
+    </div>
+</div> 

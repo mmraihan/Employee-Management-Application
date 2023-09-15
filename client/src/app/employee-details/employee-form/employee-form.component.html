@@ -1,8 +1,10 @@
-<input #checkbox1 type="checkbox" name="toggle" id="toggle">
-<label for="toggle"></label>
+<br><br>
+
+<!-- <input #checkbox1 type="checkbox" name="toggle" id="toggle">  -->
+
+<!-- <label for="toggle"></label> -->
 <div class="container">
-</div>
-<div class="formAdd">
+    <div class="formAdd">
     <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
         <div class="container">
             <div class="row">
@@ -82,7 +84,7 @@
             <div class="row">
                 
                 <div class="col-md-3">
-                    <label for="name" class="float-left">Designation</label>
+                    <label for="name" class="float-left">Education</label>
                     <div *ngIf="education.invalid && (education.touched || education.dirty)" class="float-right">
                         <p class="text-danger">Required</p>
                     </div>
@@ -91,7 +93,7 @@
 
 
                 <div class="col-md-3">
-                    <label for="name" class="float-left">address</label>
+                    <label for="name" class="float-left">Address</label>
                     <div *ngIf="address.invalid && (address.touched || address.dirty)" class="float-right">
                         <p class="text-danger">Required</p>
                     </div>
@@ -105,59 +107,18 @@
                         <p class="text-danger">Required</p>
                     </div>
                     <input type="number" name="experience" class="form-control" placeholder="Enter experience" #experience="ngModel" [(ngModel)]="empService.employeeData.experience" required>
-                </div>
- 
- 
-                <!-- <div class="col-md-3">
-                    <label for="designation" class="label float-left">Designation</label>
-                    <div *ngIf="designationID.touched && designationID.value===0" class="float-right">
-                        <p class="text-danger">Required</p>
-                    </div>
-                    
-                    <select name="designationID" class="form-control" #designationID="ngModel" [(ngModel)]="empService.employeeData.designationID" required>
-                        <option value="0">Please Select</option>
-                        <option  *ngFor="let desg of empService.listDesignation" [ngValue]="desg.id">{{ desg.designation }}</option>
-                    </select>
-                
-                </div> -->
- 
-                <!-- <div class="col-md-6">
-                    <label for="gender">Gender</label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                  <input type="radio" checked="true" id="rbtn" class="form-check-input" name="gender" #gender="ngModel" [(ngModel)]="empService.employeeData.gender" value="male">Male
-                                </label>
-                            </div>
-                              
-                              <div class="form-check-inline">
-                                <label class="form-check-label">
-                                  <input type="radio" id="rbtn" class="form-check-input" name="gender" #gender="ngModel" [(ngModel)]="empService.employeeData.gender" value="female">Female
-                                </label>
-                              </div>
- 
-                              <div class="form-check-inline">
-                                <label class="form-check-label">
-                                  <input type="radio" id="rbtn" class="form-check-input" name="gender" #gender="ngModel" [(ngModel)]="empService.employeeData.gender" value="others">Others
-                                </label>
-                              </div>
-                              
-                        </div>
- 
-                    </div>
-                    </div>
-                </div> -->
+                </div>      
                 
             </div>
+            <br>
  
             <div class="row">
-                <div class="col-md-8"></div>
-                <div class="col-md-2">
+                <div class="col-md-12"></div>
+                <div class="col-md-6">
                     <button type="submit" [disabled]="gender.value==0" class="btn btn-success btn-block">Save</button>          
-                </div>
-                <div class="col-md-2">
+                </div> 
+               
+                <div class="col-md-6">
                     <button type="reset" class="btn btn-danger btn-block">Cancel</button>
                 </div>
             </div>
@@ -165,4 +126,6 @@
         </div>
     </form>
  </div>
+</div>
+
  

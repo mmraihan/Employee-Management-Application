@@ -13,9 +13,6 @@ export class EmployeeFormComponent implements OnInit {
 
   constructor(public empService: EmployeeService, public toast: ToastrService){}
 
-  @ViewChild('checkbox1') checkBox: ElementRef; 
-  isSlide: string ="off";
-
   ngOnInit() {
     
   }
@@ -32,7 +29,7 @@ export class EmployeeFormComponent implements OnInit {
   {  this.empService.addEmployee().subscribe(d=> {
      this.resetForm(myform);
      this.refereshData();
-     this.toast.success('Sucess','Record Saved');
+     this.toast.success('Success','Data created successfully!');
     });
   }
   updateEployee(myform:NgForm)
@@ -40,14 +37,14 @@ export class EmployeeFormComponent implements OnInit {
     this.empService.updateEmployee().subscribe(d=> {
       this.resetForm(myform);
       this.refereshData();
-      this.toast.warning('Sucess','Record Updated');
+      this.toast.warning('Success','Data updated successfully!');
     });
   }
   resetForm(myform:NgForm)
   {
     myform.form.reset(myform.value);
     this.empService.employeeData=new Employee();
-    this.hideShowSlide();
+
   }
   refereshData()
   {
@@ -56,18 +53,5 @@ export class EmployeeFormComponent implements OnInit {
     });
   }
 
-  hideShowSlide()
-  {
-    if(this.checkBox.nativeElement.checked)
-    {
-      this.checkBox.nativeElement.checked=false;
-      this.isSlide='off';
-    }
-    else
-    {
-      this.checkBox.nativeElement.checked=true;
-      this.isSlide='on';
-    }
-  }
 
 }

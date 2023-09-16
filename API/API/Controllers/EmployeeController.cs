@@ -2,6 +2,7 @@
 using API.Model;
 using API.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -14,6 +15,7 @@ namespace API.Controllers
         public EmployeeController(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
+            
         }
 
         [HttpGet]
@@ -86,6 +88,7 @@ namespace API.Controllers
             return NoContent();
         }
 
-        
+
+
     }
 }

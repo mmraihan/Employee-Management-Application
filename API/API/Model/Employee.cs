@@ -18,8 +18,11 @@ namespace API.Model
         public decimal Age { get; set; }
 
         [StringLength(150)]
-        public string Email { get; set; }  
+        public string Email { get; set; }
+
+        [Required]
         public DateTime JoiningDate { get; set; }
+        
         public string Education { get; set; }
 
         [StringLength(100)]
@@ -28,7 +31,10 @@ namespace API.Model
         [StringLength(250)]
         public string Address { get; set; }
         public decimal Experience { get; set; }
-       
-        
+
+        [Required]
+        public DateTime EndingDate { get; set; }
+
+
     }
 }

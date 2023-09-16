@@ -14,5 +14,7 @@ namespace API.Repositories
         Task UpdateEmployeeAsync(int id, Employee employee);
 
         Task DeleteEmployeAsyn(int employeeId);
+
+        Task<List<Employee>> GetAllEmployeesAsyncByJoinAndEndingTime(DateTime? fromDate, DateTime? toDate);
     }
 }

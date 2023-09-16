@@ -65,23 +65,7 @@ namespace API.Repositories
         public async Task<List<Employee>> GetAllEmployeesAsyncByJoinAndEndingTime(DateTime? fromDate = null, DateTime? toDate = null)
         {
 
-            //var query = _employeeDbContext.Employees.AsQueryable();
-
-            //if (fromDate.HasValue)
-            //{
-            //    query = query.Where(e => e.JoiningDate >= fromDate.Value);
-            //}
-
-            //if (toDate.HasValue)
-            //{
-            //    query = query.Where(e => e.EndingDate <= toDate.Value || e.EndingDate == null);
-            //}
-
-            //var employees = query.ToList();
-
-            //var employeesInDateRange = await _employeeDbContext.Employees
-            //    .Where(e => e.DateOfBirth >= fromDate && e.DateOfBirth <= toDate && e.JoiningDate >= fromDate && e.JoiningDate <= toDate)
-            //    .ToListAsync();
+            
 
             var employeesInDateRange = await _employeeDbContext.Employees
                 .Where(e => e.JoiningDate >= fromDate && (e.EndingDate == null || e.EndingDate <= toDate))

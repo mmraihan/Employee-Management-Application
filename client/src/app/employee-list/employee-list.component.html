@@ -1,0 +1,18 @@
+<!-- src/app/employee-list/employee-list.component.html -->
+<h2>Employee List</h2>
+<form>
+  <label for="joiningDate">Joining Date:</label>
+  <input type="date" id="joiningDate" [(ngModel)]="joiningDate">
+  <label for="endingDate">Ending Date:</label>
+  <input type="date" id="endingDate" [(ngModel)]="endingDate">
+  <button (click)="getEmployees()">Get Employees</button>
+</form>
+<div>
+  <h3>Employees</h3>
+  <ul>
+    <li *ngFor="let employee of employees">
+      <!-- {{ employee.firstName }} (DOB: {{ employee.dateOfBirth }}, Joining Date: {{ employee.joiningDate }}) -->
+      {{ employee.firstName }}
+    </li>
+  </ul>
+</div>
